@@ -1,0 +1,30 @@
+name: Kustomize Check - OC 4.6
+
+on: [push, pull_request]
+
+jobs:
+  kustomize-build-check-4-6:
+    runs-on: ubuntu-latest
+    container:
+      # Use the same version of kustomize available with Argo
+      image: quay.io/openshift/origin-cli:4.6
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Validate all kustomization.yaml files
+        run: |
+          #!/bin/bash
+          set -e
+
+          echo "OC Version:"
+          oc version
+          echo ""
+
+          find -type f -iname "kustomization.y*ml" | while read file
+          do
+              dir=$(dirname "$file")
+              echo "Testing ${dir}"
+              oc kustomize "${dir}"
+              echo "---------------------------"
+          done
