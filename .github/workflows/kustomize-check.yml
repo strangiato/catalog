@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       # Use the same version of kustomize available with Argo
-      image: quay.io/openshift/origin-cli:4.8
+      image: quay.io/openshift/origin-cli:latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -17,8 +17,8 @@ jobs:
           #!/bin/bash
           set -e
 
-          echo "Kustomize Version:"
-          # kustomize version
+          echo "OC Version:"
+          oc version
           echo ""
 
           find -type f -iname "kustomization.y*ml" | while read file
