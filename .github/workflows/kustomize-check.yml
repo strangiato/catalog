@@ -25,6 +25,6 @@ jobs:
           do
               dir=$(dirname "$file")
               echo "Testing ${dir}"
-              kustomize build "${dir}"
+              oc kustomize "${dir}"
               echo "---------------------------"
           done
