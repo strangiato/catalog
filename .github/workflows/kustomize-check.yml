@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       # Use the same version of kustomize available with Argo
-      image: registry.redhat.io/openshift4/ose-cli:v4.8
+      image: quay.io/openshift/origin-cli:4.8
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
