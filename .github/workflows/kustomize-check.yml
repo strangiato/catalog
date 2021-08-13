@@ -18,7 +18,7 @@ jobs:
           set -e
 
           echo "Kustomize Version:"
-          kustomize version
+          # kustomize version
           echo ""
 
           find -type f -iname "kustomization.y*ml" | while read file
