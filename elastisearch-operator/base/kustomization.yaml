@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: openshift-operators-redhat
 
 resources:
-- elastisearch-subscription.yaml
+  - elastisearch-subscription.yaml
