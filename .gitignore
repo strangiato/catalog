@@ -1,2 +1,5 @@
 .DS_Store
 temp
+
+# python virtual environment
+venv/
